@@ -128,7 +128,7 @@ def onVoltageRatioChangeHandler(self, voltageRatio):
 
     onVoltageRatioChangeHandler.time = millis()
 
-    w1 = voltageRatio*559110 - x[1]
+    w1 = voltageRatio * coeff[0] + coeff[1]
 
     print "v1: %0.2f" % w1,
 
@@ -146,7 +146,7 @@ def onVoltageRatioChangeHandler2(self, voltageRatio):
 
     onVoltageRatioChangeHandler2.time = millis()
 
-    w2 = voltageRatio * 559110 - 13.343
+    w2 = voltageRatio * coeff[2] + coeff[3]
 
     print "v2: %0.2f" % w2,
 
@@ -164,7 +164,7 @@ def onVoltageRatioChangeHandler3(self, voltageRatio):
 
     onVoltageRatioChangeHandler3.time = millis()
 
-    w3 = voltageRatio * 559110 - 14.343
+    w3 = voltageRatio * coeff[4] + coeff[5]
 
     print "v3: %0.2f" % w3,
 
@@ -183,7 +183,7 @@ def onVoltageRatioChangeHandler4(self, voltageRatio):
 
     onVoltageRatioChangeHandler4.time = millis()
 
-    w4 = voltageRatio * 559110 - 14.343
+    w4 = voltageRatio * coeff[6] + coeff[7]
 
     print "v4: %0.2f ts: %d" % (w4, t4)
 
