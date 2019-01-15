@@ -1,2 +1,5 @@
 #output file
 *.txt
+
+# python compiled file
+*.pyc
