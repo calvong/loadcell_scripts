@@ -6,6 +6,7 @@ from Phidget22.PhidgetException import *
 from Phidget22.Phidget import *
 from Phidget22.Net import *
 from PhidgetHelperFunctions import *
+import calibration_helper as cali
 
 millis = lambda: int(round(time.time() * 1000))
 t1 = 0
@@ -18,7 +19,11 @@ f2 = open("motor2.txt", "a+")
 f3 = open("motor3.txt", "a+")
 f4 = open("motor4.txt", "a+")
 
+coeff = cali.run_calibration()
 
+
+
+# ==== hosuekeeping functions ======================
 def onAttachHandler(self):
     
     ph = self
@@ -110,10 +115,10 @@ def onErrorHandler(self, errorCode, errorString):
 
     sys.stderr.write("[Phidget Error Event] -> " + errorString + " (" + str(errorCode) + ")\n")
 
-
+# ==== data sampling functions ======================
 def onVoltageRatioChangeHandler(self, voltageRatio):
     onVoltageRatioChangeHandler.time = getattr(onVoltageRatioChangeHandler, 'time', millis())
-
+    global x
     global t1
     global f1
 
@@ -123,7 +128,7 @@ def onVoltageRatioChangeHandler(self, voltageRatio):
 
     onVoltageRatioChangeHandler.time = millis()
 
-    w1 = voltageRatio*559110 - 14.343
+    w1 = voltageRatio*559110 - x[1]
 
     print "v1: %0.2f" % w1,
 
@@ -286,6 +291,8 @@ def main():
 
     print("\nExiting...")
     return 0
+
+#============================================================================
 
 
 
