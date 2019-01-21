@@ -132,7 +132,7 @@ def main():
     """
     * Define how long the program runs for
     """
-    runtime = 1  # seconds
+    runtime = 10  # seconds
 
     """
     * Allocate a new Phidget Channel object

@@ -31,10 +31,10 @@ def run_calibration(mvalue):
     print "running calibration ..."
 
     for i in range(4):  # for 4 loadcells
-        val_t1 = 662
+        val_t1 = 664
         val_m1 = mvalue[2*i]
 
-        val_t2 = 914
+        val_t2 = 893
         val_m2 = mvalue[2*i+1]
 
         c = get_coeff(val_t1, val_m1, val_t2, val_m2)
